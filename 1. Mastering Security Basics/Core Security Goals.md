@@ -1,0 +1,54 @@
+
+Security starts with several principles that organizations include as core security goals. Cybersecurity has three main goals: **confidentiality integrity and availability**.
+
+* **Confidentiality** prevents the unauthorized disclosure of information. It keeps secret information secret. 
+* **Integrity** prevents the unauthorized alteration of information or systems. It keeps our information safe from intentional or accidental changes. 
+* **Availability** ensures authorized users are able to access information and systems when they need them.
+
+
+> [!TIP]
+> Confidentiality prevents the unauthorized disclosure of information. It keeps secret information secret. Integrity prevents the unauthorized alteration of information or systems. It keeps our information safe from intentional or accidental changes. Availability ensures authorized users are able to access information and systems when they need them. Determine which is the primary goals between these three goals?
+
+
+## Ensuring Confidentiality 
+You can ensure confidentiality using several different methods discussed in the following sections.
+
+##### 1. Encryption 
+Encryption scrambles data to make it unreadable by an unauthorized individual. Authorized personnel can decrypt the data to access it. 
+
+##### 2. Access Controls
+Imagine you want to grant Maggie access to some data but not to Homer. You can use access controls to grant and restrict access to this data. 
+
+* **Identification**. Users claim an identity with a unique username. I.e. Maggie & Homer
+* **Authentication**. Users prove their identity with authentication, such as with a password. 
+* **Authorization**. Next, you can grant or restrict access to resources using an authorization method, such as permissions. 
+
+## Ensuring Integrity 
+Ideally, only authorized users can modify data. However, there are times when unauthorized or unintended changes occur. 
+
+##### 1. Hashing
+We can use a hashing algorithm to verify that the data is the same as the original, if we hash the original and the current version and we find that the hash values match the data is the same, otherwise, the data has lost its integrity.
+
+## Ensuring Availability
+Organizations commonly implement redundancy and fault-tolerant methods to ensure high levels of availability for key systems. Additionally, organizations ensure systems stay up to date with current patches to ensure that software bugs don’t affect their availability.
+
+##### 1. Redundancy and Fault Tolerance
+*Redundancy* adds duplication to critical systems and provides *fault tolerance*. The main objective is to remove each **single point of failure (SPOF)** because if one of these fails the entire system falls. 
+
+* **Disk redundancies**. Fault-tolerant disks, such as RAID-1 (mirroring), allow a system to continue to operate even if a disk fails. 
+* **Server redundancies**. If a server fails. In a failover cluster, the service switches from the failed server in a cluster to a redundant or standby server in the same cluster. 
+* **Network redundancies**. Load balancing uses multiple servers to support a single service. Network interface card (NIC) teaming can provide both redundancy support and increased bandwidth by putting two or more network cards in a single server
+* **Power redundancies**. Uninterruptible power supplies (UPSs) and power generators can provide power to key systems even if commercial power fails.
+
+##### 2. Scalability and Elasticity
+
+*Scalability* means that you should eb able to increase the capacity of a system to meet new demand.  Adding more servers is known as *Horizontal Scalability* while *Vertical Scalability* instead adds more resources. 
+
+*Elasticity* automates scalability by having the system control the amount of resources needed to perform a task. 
+
+##### 3. Patching
+Keeping systems up-to-date to ensure no software bugs cause a crash or issues. Organizations often implement patch management to ensure their systems are kept up-to-date 
+
+##### 4. Resiliency 
+A current trend is to increase the resiliency of systems rather than the highest possible availability. *Resiliency* methods help systems heal themselves or recover from a fault with minimal downtime. Making and testing backups, NIC teaming, backup power sources. etc. 
+
