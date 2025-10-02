@@ -10,7 +10,7 @@ Control Categories describe how control works.
 
 An administrator install and configures the technical control, and it will provide control automatically. 
 
-1. **Encryption**: Strong technical control used to protect confidentiality of data.
+1. **Encryption**: [[Core Security Goals#1. Encryption| Encryption]] is a strong technical control used to protect confidentiality of data.
 2. **AV Software**: Will provide protection against malware
 3. **Intrusion detection systems (IDSs) and intrusion prevention systems (IPSs)**:  Will monitor the network for intrusions and provide protection against some threats.
 4. **Firewalls**: Restrict network traffic going in an out of ports in a network.
@@ -21,3 +21,21 @@ These controls use planning and assessment methods to review the organization’
 
 1. **Risk Assessments**:  These help quantify the and qualify risks within an organization so that team members can focus on the primary issues.
 2. **Vulnerability Assessments**: A vulnerability assessment attempts to discover current vulnerabilities. When necessary, additional controls are implemented to reduce the risk from these vulnerabilities.
+
+## Operational Controls
+These are controls that are primarily implemented and executed by people and not systems. 
+
+1. **Awareness and Training**: Training helps users maintain password security, and understand threats like phishing.
+2. **Configurations Management**: The use of baselines ensures that systems start in a secured and hardened state. *Change Management* ensures that changes do not result in unintended config errors
+3. **Media Protections**: This includes physical media like USB sticks, external and internal drives. etc. This covers encryption and how to act in the event of theft or loss.
+
+## Physical Controls
+It’s important to realize that you can identify physical controls as other control types. For example, physical controls such as locks are both preventive and deterrent controls. A locked door prevents personnel from entering a secure area and deters individuals from even trying if they know the door is locked.
+
+1. **Video Surveillance**: Videos can be used to protect employees and determine if theft of data is being done. 
+2. **Sensors**: Sensors are a more economic way to determine when and where someone passed through, there are many types of sensors. 
+3. **Access Control Vestibules**: Provide a physical barrier between the outside world and valuable assets.
+
+> [!TIP] Remember
+>  Security controls are categorized as managerial (documented in written policies), operational (performed in day-to-day operations), technical (implemented with technology), or physical (impacting the physical world).
+> 

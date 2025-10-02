@@ -1,0 +1,35 @@
+Log entries help admins determine what happened, when, where and who or what did it. When examining entries from multiple logs, personnel create an audit trail that identifies all the events preceding a security incident. Logging is an important part of an organization’s security monitoring strategy. 
+
+## Windows Logs
+Windows has many logs which are viewable using the *Windows Event Viewer*
+
+1. **Security Log**: Security, audit and access log. It records auditable events like successes and failures.
+2. **System Log**: Operating system logs, system start, shut down and information about services and drivers.
+3. **Application Log**: Records events sent by applications or programs running on the system.
+
+![Windows Event Viewer](https://upload.wikimedia.org/wikipedia/en/b/b0/Windows_10_Event_Viewer_main_screen.png)
+
+
+## Linux Logs
+Linux systems store logs in `/var/log`. You can view them using the `cat` command or by using the system log viewer.
+
+1. `/var/log/syslog` / `var/log/messages`: Contain a wide variety of system messages. Including messages logged during startup, mail, the kernel. etc.
+2. `/var/log/secure`: Contains information related to the authentication and authorization of user sessions. 
+
+## Network Logs
+Record logs of the traffic in the network. Routers, Switches, Firewall. etc. 
+
+1. **Firewall Logs**: Track attempted accesses to the network, time, ports, IPs 
+2. **IDS/IPS Logs**: Good amount of data, what was blocked or deemed malicious
+3. **Packet Capture**: Wireshark can capture traffic which can be later analyzed.
+
+## Application Logs
+Some apps use system logs like the Windows one but they also have their own log files. These files can contain the following data: Host, User, Date, Request, Status, Bytes. etc.
+
+## Centralized Logging and Monitoring
+SIEM and Syslog systems can be used to group and centralize logs. SIEM are designed to both aggregate and correlate logs while Syslog is used only to perform aggregation. 
+
+1. **Log Aggregation**: combines several dissimilar items into a single similar format. 
+2. **Correlation Engine**: Used to collect and analyze the log data. 
+3. **Time Synchronization**: The *Network Time Protocol* (NTP) can be used to do this.
+
