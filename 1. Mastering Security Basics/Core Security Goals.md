@@ -1,4 +1,3 @@
-
 Security starts with several principles that organizations include as core security goals. Cybersecurity has three main goals: **confidentiality integrity and availability**.
 
 * **Confidentiality** prevents the unauthorized disclosure of information. It keeps secret information secret. 

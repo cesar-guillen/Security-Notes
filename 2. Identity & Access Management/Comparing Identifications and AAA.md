@@ -1,0 +1,7 @@
+*Authentication, authorization and accounting (AAA)* work together with identification to provide a comprehensive access management system.
+
+*[[Core Security Goals#2. Access Controls|Authentication]]*  proves an identity with some type of credential, like a username with a password. There is a difference between identification and authentication, you can say you are someone else but without a valid ID nobody would believe you. 
+
+It is also important to not give everyone that is authenticated access to every resource. Instead, users are granted *Authorization* to access resources based on their proven identity. 
+
+*Accounting* methods track user activity and record the activity in logs. These logs are sued to created an *audit trail* which allows security professionals to re-create the events that are post a security incident.

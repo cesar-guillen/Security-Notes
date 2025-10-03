@@ -7,7 +7,6 @@ Control Categories describe how control works.
 
 
 ## Technical Controls
-
 An administrator install and configures the technical control, and it will provide control automatically. 
 
 1. **Encryption**: [[Core Security Goals#1. Encryption| Encryption]] is a strong technical control used to protect confidentiality of data.

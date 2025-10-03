@@ -1,4 +1,3 @@
-
 Control types describe the goal that the control is trying to achieve.
 
 * **Preventive controls** attempt to prevent an incident from occurring. 
