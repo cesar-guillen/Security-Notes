@@ -1,15 +1,7 @@
-There are many ways users and systems can perform authentication. These are grouped into categories known as authentication factors to better describe how they work. We will study four of them:
-
-1. Something you know, such as a password or personal identification number (PIN) 
-2. Something you have, such as a smart card, a phone, or a USB token 
-3. Something you are, such as a fingerprint or other biometric identification 
-4. Somewhere you are, such as your home or office
-
-## Something You Know
 These is often the least secure form of authentication, because knowledge can be stolen. If i can find a user's password I can just login as them. Because of this, a list of rules is commonly used for password authentication.
 
 * Hash all passwords
-* Use Multi Factor Authentication
+* Use [[MFA Authenticaion|Multi Factor Authentication]]
 * Require password to be complex; longer than eight characters, include special characters.
 * Tell users to not use the same password for everything
 
@@ -43,8 +35,3 @@ Accounts will typically have lockout policies which prevent users from guessing 
 
 ##### Changing Default Passwords
 When installing a system of service they may include a default account username and password it is important to change these as soon as possible to prevent an attacker guessing them.
-
-## Something You Have
-Basically something you can physically hold.
-
-##### Smart Card Authentication
