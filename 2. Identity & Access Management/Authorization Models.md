@@ -1,0 +1,71 @@
+This starts by ensuring that users are accurately identified and authenticated. Then, you grant access using one of several different schemes. The authorization models covered in this section are:
+
+* Role-based access control 
+* Rule-based access control 
+* Discretionary access control (DAC) 
+* Mandatory access control (MAC) 
+* Attribute-based access control (ABAC)
+
+Often, when using any of the models, you'll run across the following terms:
+* **Subject**: Subjects are typically users, groups or services that access an object.
+* **Objects**: Objects are items such as files, folders, shares and printers that subjects access. 
+
+## Role-Based Access Control
+*Role-based access control (role-BAC)* uses roles to manage rights and permissions for users. An administrator creates the roles and then assigns specific rights to the roles.  Think of Active Directory groups, Domain Admin, Backup Operators. etc. If a user is added to the group they gain all the privileges that group has. 
+
+These role are planned using a *Matrix* which identifies the roles and their privileges in a neat table. Role-BAC is also called *hierarchy-based* or *job-based*.
+
+* **Hierarchy-based**: Top level roles have more permissions than lower level roles like User accounts.
+* **Job-, Task-, Function-based**: Roles are centered on jobs or functions that users need to perform. 
+
+> [!REMEMBER]
+> Group-based privileges reduce the administrative workload of access management. Administrators put user accounts into security groups and assign privileges to the groups. Users within a group automatically inherit the privileges assigned to the group.
+
+## Rule-Based Access Control
+Rule-based access control (rule-BAC) uses rules. The most common example is with rules in routers and firewalls. However, more advanced implementations cause rules to trigger within applications, too. Rules work like ACLs.
+
+It’s possible to configure user applications with rules. For example, imagine you want to give Homer additional permissions to a database if Marge is absent. You can configure a database rule to trigger a change to these permissions when the system recognizes that Marge is absent.
+
+## Discretionary Access Control
+In the *discretionary access control (DAC)* scheme, objects have an owner, and the owner establishes access for the objects. Think of Linux and Windows filesystems.
+
+Every object (such as a file or folder) includes a discretionary access control list (DACL) that identifies who can access it in a system using the DAC scheme. The DACL is a list of Access Control Entries (ACEs). Each ACE is composed of a SID and the permission(s) granted to the SID.
+
+> [!REMEMBER]
+> The DAC scheme specifies that every object has an owner, and the owner has full, explicit control of the object. Microsoft NTFS uses the DAC scheme.
+
+## Mandatory Access Control
+The *mandatory access control (MAC)* scheme uses labels (sometimes referred to as sensitivity labels or security labels) to determine access. Security administrators assign labels to both subjects (users) and objects (files or folders). When the labels match, the system can grant a subject access to an object. When the labels don’t match, the access scheme blocks access.
+
+*Security-enhanced Linux (SELinux)* is one of the few operating systems using the MAC scheme. This policy override standard Linux permissions but SELinux is not enforced it had three modes:
+
+1. **Enforcing mode**: This mode will enforce the SELinux policy and ignore permissions.
+2. **Permissive mode**: This mode does not enforce SELinux policy but instead uses the permissions. System logs are used to track blocked attempts
+3. **Disabled mode**: Does not enforce SELinux and does not log anything
+
+The MAC scheme uses different levels of security to classify both the users and the data. These levels are contained in a lattice, which defines the levels of security that are possible for an object and the security levels that a user is cleared to access. Users are only allowed to access an object if their security clearance is equal to or higher than the level of the object.
+
+An administrator is responsible for establishing access, but only someone at a higher authority can define the access for subjects and objects. This person can also upgrade or downgrade the user's access when necessary. 
+
+## Attribute-Based Access Control
+An attribute-based access control (ABAC) system evaluates attributes and grants access based on the value of these attributes. Attributes can be almost any characteristic of a user, the environment, or the resource. ABAC uses policies to evaluate attributes and grant access when the system detects a match in the policy.
+
+Policy statements typically have four elements:
+* **Subject**: This is typically a user, this property can include items such as, employment status, group membership, job roles. etc. 
+* **Object**: The resource the user is trying to access
+* **Action**: The action is what the user is attempting to do, reading, modifying a file.
+* **Environment**: The environment includes everything outside of the subject and object attributes. Time, locations, protocols, encryption. etc.
+
+> [!REMEMBER]
+> The ABAC scheme uses attributes defined in policies to grant access to resources. It’s commonly used in software-defined networks (SDNs).
+
+An ABAC system has a lot of flexibility and can enforce both a DAC and a MAC scheme. There are also many similarities between the ABAC scheme and the DAC and MAC schemes. In the DAC scheme, owners have control over the access, and in an ABAC scheme, owners can create policies to grant access. The MAC scheme uses labels assigned to both subjects and objects and grants access when the labels match. The ABAC scheme uses attributes that identify both subjects and objects, and grants access when a policy identifies a match.
+
+## Analyzing Authentication Indicators
+* **Account lockouts**: Watch for user accounts that have been locked out due to repeated failed password attempts.
+* **Concurrent session usage**: If the same user is logged in to the same (or different systems) from different locations at the same time, that may indicate that more than one person is using the account. 
+* **Impossible travel time**: If a user completes a login from one location and then logs in from another geographic location without having spent enough time to travel between those locations, that may also indicate two users sharing the same account. 
+* **Blocked content**: If content filters are screening out unusual levels of malicious code, that’s worthy of further investigation. 
+* **Resource consumption**: If processor time, memory, storage, or other resources are being used excessively without explanation, that may indicate that malicious code is running on the system. 
+* **Resource inaccessibility**: If services suddenly become unavailable, malicious activity may be interfering with them. For example, a website may go down because of malicious code running on the web server. 
+* **Log anomalies**: If logging levels are out-of-cycle, meaning that many log entries are appearing at unusual times or log files have gone missing, that may be an indicator of malicious activity.
