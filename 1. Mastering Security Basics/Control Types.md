@@ -13,7 +13,7 @@ Ideally, an organization will not have any security incidents, this is the prima
 1. **Hardening**: The process of making a system more secure than its default configuration. 
 2. **Training**: Ensuring users, employees are educated about vulnerabilities and  attacks like phishing.
 3. **Security Guards**: Guards help prevent and deter attacks, just by being there .
-4. **Account Disablement Process**: This ensures that accounts are disabled, for example when an employee leaves the company. 
+4. **Account Disablement Process**: This ensures that [[Managing Accounts#Deprovisioning|accounts are disabled]], for example when an employee leaves the company. 
 5. **Intrusion Prevention Systems**:  An IPS can block malicious traffic before reaching the network.
 
 ## Detective Controls
