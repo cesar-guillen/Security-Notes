@@ -1,4 +1,4 @@
-Security starts with several principles that organizations include as core security goals. Cybersecurity has three main goals: **confidentiality integrity and availability**.
+Security starts with several principles that organizations include as core security goals. Cybersecurity has three main goals: ***confidentiality integrity and availability***.
 
 * **Confidentiality** prevents the unauthorized disclosure of information. It keeps secret information secret. 
 * **Integrity** prevents the unauthorized alteration of information or systems. It keeps our information safe from intentional or accidental changes. 
@@ -32,7 +32,7 @@ We can use a hashing algorithm to verify that the data is the same as the origin
 Organizations commonly implement redundancy and fault-tolerant methods to ensure high levels of availability for key systems. Additionally, organizations ensure systems stay up to date with current patches to ensure that software bugs don’t affect their availability.
 
 ##### 1. Redundancy and Fault Tolerance
-*Redundancy* adds duplication to critical systems and provides *fault tolerance*. The main objective is to remove each **single point of failure (SPOF)** because if one of these fails the entire system falls. 
+*Redundancy* adds duplication to critical systems and provides *fault tolerance*. The main objective is to remove each ***single point of failure (SPOF)*** because if one of these fails the entire system falls. 
 
 * **Disk redundancies**. Fault-tolerant disks, such as RAID-1 (mirroring), allow a system to continue to operate even if a disk fails. 
 * **Server redundancies**. If a server fails. In a failover cluster, the service switches from the failed server in a cluster to a redundant or standby server in the same cluster. 
