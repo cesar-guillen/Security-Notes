@@ -17,7 +17,7 @@ Linux systems store logs in `/var/log`. You can view them using the `cat` comman
 2. `/var/log/secure`: Contains information related to the authentication and authorization of user sessions. 
 
 ## Network Logs
-Record logs of the traffic in the network. Routers, Switches, Firewall. etc. 
+Record logs of the traffic in the network. [[Basic Network Infrastructure|Routers, Switches, Firewall]]. etc. 
 
 1. **Firewall Logs**: Track attempted accesses to the network, time, ports, IPs 
 2. **IDS/IPS Logs**: Good amount of data, what was blocked or deemed malicious

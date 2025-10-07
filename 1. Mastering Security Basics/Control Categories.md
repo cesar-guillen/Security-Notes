@@ -12,7 +12,7 @@ An administrator install and configures the technical control, and it will provi
 1. **Encryption**: [[Core Security Goals#1. Encryption| Encryption]] is a strong technical control used to protect confidentiality of data.
 2. **AV Software**: Will provide protection against malware
 3. **Intrusion detection systems (IDSs) and intrusion prevention systems (IPSs)**:  Will monitor the network for intrusions and provide protection against some threats.
-4. **Firewalls**: Restrict network traffic going in an out of ports in a network.
+4. **[[Basic Network Infrastructure#Firewalls | Firewalls]]**: Restrict network traffic going in an out of ports in a network.
 5. **Least Privilege**: Individual or processes are granted only the privileges they need to perform their tasks, but no more.
 
 ## Managerial Controls

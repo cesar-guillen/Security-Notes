@@ -7,7 +7,7 @@ The *Open Systems Interconnections (OSI) model* is a theoretical way to describe
 > You can use a memory trick to remember the order of the OSI layers – make a sentence that has words starting with the seven letters of the model layers in order. My personal favorite is “Please Do Not Throw Sausage Pizza Away!”
 
 1. **Physical**: Basic equipment of networking: Copper wires, fiber optic cables, and radio waves.
-2. **Data Link**: Is where network switches reside. It formats data into data frames and routes it between systems on the local network using MAC addresses.
+2. **Data Link**: Is where [[Basic Network Infrastructure#Switches|network switches]] reside. It formats data into data frames and routes it between systems on the local network using MAC addresses.
 3. **Network**: Introduces IP addresses. Routers use IP addresses to send information between systems that are not located on the same local network. 
 4. **Transport**: Provides end-to-end communication services for applications. TCP and UDP exist in this layer.
 5. **Session**: Establishes, manages and terminates sessions between applications running on different devices.
@@ -28,5 +28,5 @@ Networking protocols provide the rules needed for computers to communicate with 
 	3. ACK
 * **User Datagram Protocol (UDP)**: Provides ***connectionless*** sessions. Unlike TCP, UDP tries its best to delivery data without using extra traffic to ensure delivery.  
 * **The Internet Protocol (IP)**: Identifies hosts in a TCP/IP network and delivers traffic from one host to another using IP addresses (IPv4 and IPv6)
-* **Internet Control Message Protocol (ICMP)**: Used to test basic connectivity and includes tools like ping and tracert. Due to the use of ICMP in DoS attack it is commonly blocked at firewalls and routers.  
+* **Internet Control Message Protocol (ICMP)**: Used to test basic connectivity and includes tools like ping and tracert. Due to the use of ICMP in DoS attack it is commonly blocked at [[Basic Network Infrastructure#Firewalls#Stateless Firewall Rules|firewalls]] and routers.  
 * **Address Resolution Protocol (ARP)**: Resolves IPv4 addresses to MAC addresses. TCP/IP uses the IP address to get a packet to a destination network. It then uses the [[Basic Network Concepts#Addresses|MAC]] address to get it to the correct host. In other words, ARP is required once the packet reaches the destination subnet.

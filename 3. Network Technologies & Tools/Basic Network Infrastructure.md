@@ -17,3 +17,52 @@ These devices are the frontlines of networking and should be secure.
 * **Bridge Protocol Data Unit Guard**: STP sends *Bridge Protocol Data Unit* messages in a network to detect loops. Switches exchange BPDU messages with each other using their non-edge ports. An ***edge-port*** is a switch port connected to a device. These devices should not generate BPDU messages because they will be flagged as malicious. Many switches support *BPDU guard*.  
 
 ## Routers
+A *router* connects multiple network segments into a single network and routes traffic between the segments. Due to routers not passing broadcasts requests, they reduce traffic on segments. Segments are also called ***broadcast domains*** too many computers on a segment can slow down the network, 
+
+##### Hardening Routers
+These are some technologies we can use to make routers more robust against attacks.
+
+- **Access Control Lists (ACLs)**: These are rules that are implemented inside the router which decide what traffic should go through. These filters packets on  three common characteristics:
+	- 1. IP Addresses and networks: Can block traffic coming from a single computer or an entire subnet 
+	- 2. Ports: You can block traffic coming from a specific port, both outgoing and incoming
+	- 3. Implicit Delay: It indicates that all traffic that is not explicitly allowed is implicitly denied. 
+- **Route Security**: The *route* command is used to display or modify a system's routing table. This table shows all the paths the system known to other networks. If there is not entry to a specific network the system will send the data to the default gateway. Which is the IP address of the router on the network. 
+
+## Simple Network Management Protocol
+The *Simple Network Management Protocol (SNMP)* monitors and manages network devices such as routers and switches. 
+
+SNMP agents installed on devices send information to the SNMP manager via notifications known as ***SNMP traps***.
+
+SNMPv1 and v2 have vulnerabilities due to sending credentials in cleartext, version three implements encryption. *SNMPv3 uses UDP ports 161 and 162*
+
+## Firewalls
+A *firewall* filters incoming and outgoing traffic for a single host or between networks. 
+
+Firewalls start with a basic routing capability for packet filtering. More advanced firewalls also include advanced content filtering.
+
+### Host-Based Firewalls
+These firewalls monitors traffic going in an out of a single host. It monitors traffic passing through the NIC and can prevent intrusions into the computer via the NIC.
+
+### Network-Based Firewalls
+These firewalls protect an entire network. A network based firewall is usually a *network appliance*. This means that it is sold as a hardware unit that already contains all the software necessary to run as a firewall. 
+
+A *network-based firewall* has two or more NIC's, and all traffic passes first through the firewall. It controls the traffic going in and out of the network.
+
+##### Stateless Firewall Rules
+Uses rules implemented in ACLs to identify allowed and blocked traffic. They treat every network packet as a new event. and ***do not track*** any information or ***state***. Which is very similar as a router, you can think of a router as a ***stateless firewall***. The rules in the ACL can contain the following entries:
+
+* **Permission**: Is either set to *PERMIT* or *ALLOW* to allow traffic or *DENY* to deny traffic.
+* **Protocol**: Typically set to *UDP* or *TCP*. *ICMP* can also be blocked here.
+* **Source**: Allow or block traffic ***coming*** from an IP address, a range or any (\*)
+* **Destination**: Allow or block traffic ***going*** from an IP address, a range or any (\*)
+* **Port or Protocol**: Typically you will see well-known ports.
+
+##### Stateful Firewalls
+Inspects traffic and makes decisions based on the traffic context or ***state***. It keeps track of established session. For example, if a TCP is established and there was no three-way handshake the firewall will deem this as suspicious and stop the session. 
+
+Modern network-based firewalls are all stateful firewalls. They operate at the ***Transport Layer*** of the [[Basic Network Concepts#OSI Model|OSI model]]. 
+
+A common security issue with *stateless firewalls* is a missing deny rules which can then allow almost all traffic into the network. 
+
+##### Web Application Firewall
+A *WAF* is a firewall designed to protect web applications. The WAF is placed between the web server and the web server clients. 
