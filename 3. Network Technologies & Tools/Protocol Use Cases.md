@@ -40,4 +40,62 @@ Securing email is a complex task and there are controls other than encryption.
 The Lightweight Directory Access Protocol (LDAP) specifies the formats and methods used to query directories, such as Microsoft AD DS. LDAP uses TCP port 389. LDAP Secure (LDAPS) encrypts data with TLS using TCP port 636.
 
 ## Voice and Video 
+It is quite common to transport voice and video over a network. *UDP* is commonly used instead of *TCP*. The 
 
+*Real-time Transport Protocol (RTP)* delivers audio and video over IP networks. This includes *Voice over Internet Protocol (VoIP)* communications, streaming media, video teleconferencing. The *Secure Real-time Transport Protocol (SRTP)* provides encryption, message authentication and integrity for *RTP*.
+
+The *Session Initiation Protocol (SIP)* is used to initiate, maintain and terminate voice, video and messaging sessions. After SIP establishes the sessions, RTP or SRTP transports the audio or video.
+
+*SIP* do not contain any data except for its metadata which can contain information about equipment, software and IPs. *VoIP* systems support SIP logging which can be helpful for forensic investigations.
+
+## Remote Access
+ In the past, when administrators had to connect remotely to a server, they would do so with *telnet*, which sends data in cleartext which is unsecure. Today, admins commonly use *SSH*.
+
+Admins also commonly use *Remote Desktop Protocol (RDP)* to connect to other systems. RDP uses TCP port ***3389***. Users cannot normally connect to this port as it is blocked by the firewall.
+
+Another to connect remotely is using a *Virtual Private Network (VPN)*.
+
+##### OpenSSH
+OpenSSH supports password authentication and passwordless authentication. To do the later we need to generate a key pair. The public key is kept on the server and the private key should be kept on the machine we are using to connect to the server.
+
+The command `ssh-keygen -t rsa` will generate the key pair. After this we can use the command `ssh-copy-id root@IP` to copy the public key into the default folder. 
+
+## Time Synchronization
+There are many instances when systems need to be using the same time. For example, *Kerberos* is very picky about this.
+
+Within an Active Directory domain, the domain controller will periodically use the Windows Time service to locate a reliable server running the *Network Time Protocol (NTP)*. Following this all the remaining domain controllers will query the first one and all the machine in the network will query their closest DC to synchronize their times . NTP is the ***most common*** protocol for time synchronization.
+
+## Network Address Allocation
+This refers to allocating IP addresses to hosts within your network. This can be done manually but most networks use the *Dynamic Hosts Configuration Protocol (DHCP)* to dynamically assign IP addresses to hosts. 
+
+##### [[Basic Network Concepts#Addresses|IPv4]]
+All internet IP addresses are public IP addresses and internal networks use private IP addresses. Public IPs are tightly controlled and you cant just use any public IP.
+
+Instead, you must either purchase or rent it, ISPs purchase entire ranges of IP addresses and issue them to customers.
+
+Private IP addresses come in three address ranges:
+1. 10.x.y.z -> 10.0.0.0. through 10.255.255.255
+2. 172.16.x.y-172.31.x.y -> 172.16.0.0 through 172.31.255.255
+3. 192.168.x.y -> 192.168.0.0 through 192.168.255.255
+
+##### [[Basic Network Concepts#Addresses|IPv6]]
+Instead of private IP addresses, IPv6 uses unique local addresses. They are only allocated within private networks and not assigned to systems on the internet. Unique local addresses start with the prefix of ***fc00***.
+
+## Domain Name Resolution
+The primary function of *Domain Name System (DNS)* is for domain name resolution. DNS resolves hostnames to IP addresses.
+
+When you query a DNS server it may know the answer in which case it gives you the response. Other times, it queries one or more other DNS servers to get the answer. If it does this it will store the answer in its cache to avoid repeated queries. 
+
+DNS servers host data in zones, which you can think of as databases. Zone files include multiple records:
+
+* **A**: Also called the ***host record***. It holds the hostname and IPv4 address and its most common used record in a DNS server, 
+* **AAAA**: This record holds the hostname and IPv6 address.
+* **PTR**: Also called a ***pointers record***. It is the ***opposite*** of an **A** record. Instead of a DNS client querying DNS with the name, the client queries the DNS with an IP address.
+* **MX**: Also called ***mail exchange***. An MX record identifies a mail server used for email. The MX record is linked to the **A** record or **AAAA** record. 
+* **CNAME**: A canonical name, or alias, allows a single system to have multiple names associated with a single IP address. 
+* **SOA**: The start of authority (SOA) record includes information about a domain or zone and some of its settings. For example it includes the TTL which is used to determine how long to cache DNS results. 
+
+##### DNSSEC
+One risk with DNS is *DNS poisoning*. When successful, attacker modify the DNS cache with bogus IP addresses. This can be done to send users to a malicious website. 
+
+One of the primary methods of preventing *DNS cache poisoning* is with *Domain Name System Security Extensions (DNSSEC)* whish is a suite of extensions to DNS that provides validation for DNS responses. It adds a *Resource Record Signature (RRSIG)*, commonly referenced a digital signature, to each record. The RESIG provides integrity and authentication for DNS replies

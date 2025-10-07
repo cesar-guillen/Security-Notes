@@ -31,5 +31,5 @@ SIEM and Syslog systems can be used to group and centralize logs. SIEM are desig
 
 1. **Log Aggregation**: combines several dissimilar items into a single similar format. 
 2. **Correlation Engine**: Used to collect and analyze the log data. 
-3. **Time Synchronization**: The *Network Time Protocol* (NTP) can be used to do this.
+3. **Time Synchronization**: The [[Protocol Use Cases#Time Synchronization|Network Time Protocol (NTP)]] can be used to do this.
 
