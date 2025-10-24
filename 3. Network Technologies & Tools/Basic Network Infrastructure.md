@@ -65,4 +65,22 @@ Modern network-based firewalls are all stateful firewalls. They operate at the *
 A common security issue with *stateless firewalls* is a missing deny rules which can then allow almost all traffic into the network. 
 
 ##### Web Application Firewall
-A *WAF* is a firewall designed to protect web applications. The WAF is placed between the web server and the web server clients. 
+A *WAF* is a firewall designed to protect web applications. The WAF is placed between the web server and the web server clients. It is commonly used to protect the web server from XSS attacks. 
+
+A *WAF* should not replace the actual firewall it is simply an added layer of security to the network-based firewall. It is also important to note that before reaching the web server all traffic goes through the *WAF*.
+
+##### Next-Generation Firewall
+A *next-generation firewall (NGFW)* is an advanced firewall which adds new features . **First Generation** firewalls were packet-filtering, stateless, and could only block traffic evaluating individual packets. **Second Generation** firewalls introduced states which allowed firewalls to evaluate traffic based on the session state.
+
+An *NGFW* performs deep-packet inspections, adding application-level inspection as a core feature. The *NGFW* is aware of common application protocols like FTP and HTTP which allows it to detect potentially malicious traffic.
+
+*WAFs* and *NGFWs* both analyze information about all three layers of the OSI model, including the application layer. Therefore, they are known as ***Layer 7 firewalls***.
+
+## Failure Modes
+Security systems that enforce policies will experience failures. The designers of the system must choose one of two failure modes.
+
+1. **Fail-open** system allows everything to pass through the system when it fails. No security controls are available but there will be no disruption to traffic
+2. **Fail-closed** system allows nothing to pass through the system when it fails. No security policies are violated.
+
+
+
