@@ -1,7 +1,7 @@
 These is often the least secure form of authentication, because knowledge can be stolen. If i can find a user's password I can just login as them. Because of this, a list of rules is commonly used for password authentication.
 
 * Hash all passwords
-* Use [[MFA Authenticaion|Multi Factor Authentication]]
+* Use [[3. MFA Authenticaion|Multi Factor Authentication]]
 * Require password to be complex; longer than eight characters, include special characters.
 * Tell users to not use the same password for everything
 
